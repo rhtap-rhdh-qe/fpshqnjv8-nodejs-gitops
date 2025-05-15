@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: fpshqnjv8-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: fpshqnjv8-nodejs 
+  name: fpshqnjv8-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: fpshqnjv8-nodejs
+    weight: 100 
